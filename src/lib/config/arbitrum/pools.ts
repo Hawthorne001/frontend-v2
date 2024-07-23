@@ -85,14 +85,18 @@ const pools: Pools = {
       '0x7a66b9ef65a88e9abc94a08c9b043e73685d850b000000000000000000000517', // ezETH/wETH
       '0xb61371ab661b1acec81c699854d2f911070c059e000000000000000000000516', // ezETH/wstETH
       '0x94f9ad04b4bd9e70957a429bfec20140c164983600000000000000000000051a', // SWEEP-USDC-BPT
+      '0x59743f1812bb85db83e9e4ee061d124aaa64290000000000000000000000052b', // sUSDe/sFRAX
+      '0x2f0cdf8596be980ef24924ca7bf54e630ca526b2000000000000000000000529', // sUSDe/USDC
+      '0x537d8ef9e6e0adfb099cb14aeaf04ebeffaf444c000000000000000000000528', // USDe/USDC
+      '0xfb2f7ed572589940e24c5711c002adc59d5e79ef000000000000000000000535', // jitoSOL/wSOL
+      '0x7b54c44fbe6db6d97fd22b8756f89c0af16202cc00000000000000000000053c', // ETHx/wstETH
     ],
   },
   Investment: {
     AllowList: [''],
   },
   Weighted: {
-    // Only effective after given timestamp here: usePool.ts#createdAfterTimestamp
-    // see useDisabledJoinPool.ts#nonAllowedWeightedPoolAfterTimestamp for logic.
+    // Deprecated list, no longer in use
     AllowList: [
       '0xd449efa0a587f2cb6be3ae577bc167a7745258100001000000000000000003f4',
       '0xce34c867d7053befb3421d6adabcb5ce55ff777b00010000000000000000041b', // crv/wbtc/wsteth/gdai/uni/link
@@ -196,6 +200,16 @@ const pools: Pools = {
       '0xb2c1fa809b0d86890ee9198e8d5f3d2e6b3f4e9c000200000000000000000521', // 45ezETH-55WBTC
       '0x97ae0a49eed95fb66684579d110fcc76d55b6c1c000200000000000000000522', // MER/USD
       '0xa6c8ff647d6239a4bdfed023185f9c42c7db3252000200000000000000000523', // 994POOL-BPT-1MER
+      '0xa83b8d30f61d7554ad425d8067d8ba6eaeb6b042000200000000000000000525', // 70WETH-30ARB
+      '0x64abeae398961c10cbb50ef359f1db41fc3129ff000200000000000000000526', // 80AURA-20WETH
+      '0xb09dc8f98164974fa89e55a97fd99b62bdbe4de200020000000000000000052c', // 50T/50wETH
+      '0xe26a52ca1f508ff026f366ab6505bb95332a51d600020000000000000000052d', // 50WETH-50USDC
+      '0x026a586b3fe3b3d07375b4a11a505c8b4ef07eec000200000000000000000533', // 50weETH-50WETH
+      '0x3b106b7ae88c3f8869b5221d2bbae398afc26737000100000000000000000534', // 33WETH-33USDC-33USDT
+      '0x260dbd54d87a10a0fc9d08622ebc969a3bf4e6bb000200000000000000000536', // jitoSOL/wstETH
+      '0xf2658f994c882237d3612099cae541d50348fcf9000200000000000000000537', // PUPPET-WETH
+      '0xbc450dcb3a135a57448f8054badaec5c9f2af571000200000000000000000538', // 50SOL-50wstETH
+      '0x19da41a2ccd0792b9b674777e72447903fe29074000200000000000000000539', // PUPPET-WETH
     ],
   },
   Factories: {
@@ -215,7 +229,9 @@ const pools: Pools = {
     '0xc7e5ed1054a24ef31d827e6f86caa58b3bc168d7': 'weightedPool', // weighted pool v4
     '0x2498a2b0d6462d2260eac50ae1c3e03f4829ba95': 'composableStablePool', // ComposableStable V4
     '0xa8920455934da4d853faac1f94fe7bef72943ef1': 'composableStablePool', // ComposableStable V5
-    '0xdca5f1f0d7994a32bc511e7dba0259946653eaf6': 'gyroE',
+    '0x4bdcc2fb18aeb9e2d281b0278d946445070eada7': 'composableStablePool', // ComposableStable V6
+    '0xdca5f1f0d7994a32bc511e7dba0259946653eaf6': 'gyroE', // Gyro ECLP
+    '0x7a36527a02d96693b0af2b70421f952816a4a088': 'gyroE', // Gyro ECLP
   },
   Stakable: {
     VotingGaugePools: [
@@ -296,6 +312,27 @@ const pools: Pools = {
       '0x4b3af34eb1135d59df8b9cdc2ff07d30d05334c400000000000000000000050d',
       '0xb61371ab661b1acec81c699854d2f911070c059e000000000000000000000516',
       '0xeb3e64ad9314d20bf943ac72fb69f272603f9cce0002000000000000000004f5',
+      '0x125bc5a031b2db6733bfa35d914ffa428095978b000200000000000000000514',
+      '0xca8ecd05a289b1fbc2e0eaec07360c4bfec07b6100020000000000000000051d',
+      '0x14abd18d1fa335e9f630a658a2799b33208763fa00020000000000000000051f',
+      '0x260dbd54d87a10a0fc9d08622ebc969a3bf4e6bb000200000000000000000536',
+      '0xfb2f7ed572589940e24c5711c002adc59d5e79ef000000000000000000000535',
+      '0x7b54c44fbe6db6d97fd22b8756f89c0af16202cc00000000000000000000053c',
+      '0x395aad0582cd035c6c75ae32043bb83423ddd6f800020000000000000000054c',
+      '0x90e6cb5249f5e1572afbf8a96d8a1ca6acffd73900000000000000000000055c',
+      '0xcdcef9765d369954a4a936064535710f7235110a000200000000000000000558',
+      '0xd2b6e489ce64691cb46967df6963a49f92764ba9000200000000000000000545',
+      '0xfed111077e0905ef2b2fbf3060cfa9a34bab4383000200000000000000000544',
+      '0x2b783cd37774bb77d387d35683e8388937712f0a00020000000000000000056b',
+      '0x46472cba35e6800012aa9fcc7939ff07478c473e00020000000000000000056c',
+      '0xbc88fa2aeb274326ae3f2c66139d5eb33d1f5c2e00020000000000000000056d',
+      '0xf890360473c12d8015da8dbf7af11da87337a065000000000000000000000570',
+      '0xe8a6026365254f779b6927f00f8724ea1b8ae5e0000000000000000000000580',
+      '0xb8cb384e65096386c1edaaf784e842c957fa3645000000000000000000000571',
+      '0x5b89dc91e5a4dc6d4ab0d970af6a7f981971a443000000000000000000000572',
+      '0x7967fa58b9501600d96bd843173b9334983ee6e600020000000000000000056e',
+      '0x7272163a931dac5bbe1cb5fefaf959bb65f7346f000200000000000000000549',
+      '0x6e822c64c00393b2078f2a5bb75c575ab505b55c000200000000000000000548',
     ],
     AllowList: [
       '0x88e2c969e2a1c69c16d1dcd9f8acde4c6ab3838a0002000000000000000004c1',
@@ -305,6 +342,9 @@ const pools: Pools = {
       '0xc757f12694f550d0985ad6e1019c4db4a803f1600002000000000000000004de',
       '0x2ce4457acac29da4736ae6f5cd9f583a6b335c270000000000000000000004dc',
       '0x920ce9ec4c52e740ab4c3d36fb5454c274907ae500020000000000000000051b',
+      '0x49a16fa51bbcdd3cfeda623e83e50b2f75fbcb4f000200000000000000000566',
+      '0x42f7cfc38dd1583ffda2e4f047f4f6fa06cefc7c000000000000000000000553', // osETH/wETH ECLP
+      '0x46472cba35e6800012aa9fcc7939ff07478c473e00020000000000000000056c', // gho gyro
     ],
   },
   Metadata: {
@@ -312,15 +352,71 @@ const pools: Pools = {
       points: [
         {
           protocol: Protocol.Renzo,
-          multiple: '2',
+          multiple: '3',
           description:
-            'LPs in this pool earn 2x ezPoints on the TVL of the pool (wstETH + ezETH)',
+            'LPs in this pool earn 3x ezPoints on the TVL of the pool (wstETH + ezETH)',
         },
         {
           protocol: Protocol.Eigenlayer,
           multiple: '1',
           description:
             'LPs in this pool get their share of 1x on the amount of ezETH held in the pool.',
+        },
+      ],
+    },
+    '0x7272163a931dac5bbe1cb5fefaf959bb65f7346f000200000000000000000549': {
+      points: [
+        {
+          protocol: Protocol.Gyro,
+          multiple: '5',
+          description:
+            'LPs in this pool earn Gyroscope SPIN on the TVL of the pool.',
+        },
+      ],
+    },
+    '0x6e822c64c00393b2078f2a5bb75c575ab505b55c000200000000000000000548': {
+      points: [
+        {
+          protocol: Protocol.Gyro,
+          multiple: '5',
+          description:
+            'LPs in this pool earn Gyroscope SPIN on the TVL of the pool.',
+        },
+      ],
+    },
+    '0xef0c116a2818a5b1a5d836a291856a321f43c2fb00020000000000000000053a': {
+      points: [
+        {
+          protocol: Protocol.Gyro,
+          multiple: '1',
+          description:
+            'LPs in this pool earn Gyroscope SPIN on the TVL of the pool.',
+        },
+      ],
+    },
+    '0x395aad0582cd035c6c75ae32043bb83423ddd6f800020000000000000000054c': {
+      points: [
+        {
+          protocol: Protocol.Gyro,
+          multiple: '5',
+          description:
+            'LPs in this pool earn 5x SPIN on the GYD portion (equivalently 1x on pool TVL) of the pool',
+        },
+      ],
+    },
+    '0x90e6cb5249f5e1572afbf8a96d8a1ca6acffd73900000000000000000000055c': {
+      points: [
+        {
+          protocol: Protocol.Kelp,
+          multiple: '2',
+          description:
+            'LPs earn 2x miles. The Miles boost increases rewards based on the total pool capital, not just rsETH. Your daily Kelp Miles value is calculated by multiplying the effective rsETH balance by 10,000 times the boost value. Your Miles are then distributed based on your share of the liquidity pool.',
+        },
+        {
+          protocol: Protocol.Eigenlayer,
+          multiple: '1',
+          description:
+            'LPs in this pool get their share of Eigenlayer points depending on assets deposited in the pool.',
         },
       ],
     },
